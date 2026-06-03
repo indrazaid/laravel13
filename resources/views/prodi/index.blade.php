@@ -12,8 +12,8 @@
 
         <tr>
             <th>No</th>
+             <th>Nama Prodi</th>
             <th>Nama Jurusan</th>
-            <th>Nama Prodi</th>
             <th>Aksi</th>
         </tr>
 
@@ -21,14 +21,15 @@
 
         <tr>
             <td>{{ $loop->iteration }}</td>
+            
+            <td>
+                {{ $item->nama_prodi }}
+            </td>
 
             <td>
                 {{ $item->jurusan->nama_jurusan }}
             </td>
 
-            <td>
-                {{ $item->nama_prodi }}
-            </td>
             <td>
                 <a href="/prodi/{{ $item->id }}/edit">
                     Edit
