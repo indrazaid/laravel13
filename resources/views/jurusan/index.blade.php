@@ -17,7 +17,7 @@
                 Data Jurusan
             </h6>
 
-            <a href="/jurusan/create" class="btn btn-primary btn-sm">
+            <a href="{{ route('jurusan.create') }}" class="btn btn-primary btn-sm">
                 <i class="fas fa-plus"></i>
                 Tambah Jurusan
             </a>
@@ -44,11 +44,11 @@
             <td>{{ $item->nama_jurusan }}</td>
             <td>
 
-                <a href="/jurusan/{{ $item->id }}/edit"   class="btn btn-warning btn-sm">
+                <a href="{{ route('jurusan.edit', $item->id) }}""   class="btn btn-warning btn-sm">
                     Edit
                 </a>
 
-                <form action="/jurusan/{{ $item->id }}"
+                <form action="{{ route('jurusan.destroy', $item->id) }}"
                       method="POST" style="display:inline;">
 
                     @csrf

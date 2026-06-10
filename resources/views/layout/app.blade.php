@@ -18,7 +18,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
 
 </head>
 
@@ -81,12 +81,19 @@
                     <i class="fas fa-fw fa-table"></i>
                     <span>Kelola Mahasiswa</span></a>
             </li>
-            <!-- Nav Item - Charts -->
+          
+            
             <li class="nav-item">
-                <a class="nav-link" href="login.html">
+            <form action="/logout" method="POST">
+                @csrf
+
+                <button type="submit" class="nav-link border-0 bg-transparent w-100 text-left">
                     <i class="fas fa-sign-out-alt"></i>
-                    <span>Logout</span></a>
-            </li>
+                    <span>Logout</span>
+                </button>
+            </form>
+          </li>
+
 
 
 
@@ -360,21 +367,21 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="{{asset('vendor/chart.js/Chart.min.js')}}"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="{{asset('js/demo/chart-area-demo.js')}}"></script>
+    <script src="{{asset('js/demo/chart-pie-demo.js')}}"></script>
 
 </body>
 
