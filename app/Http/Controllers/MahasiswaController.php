@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use App\Models\Mahasiswa;
 use App\Models\Prodi;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class MahasiswaController extends Controller
@@ -23,14 +24,21 @@ class MahasiswaController extends Controller
 
     public function store(Request $request)
     {
+        $user = User::create([
+          'name' => $request->nama,
+          'username' => $request->nim,
+          'password' => '123456',
+          'role' => 'mahasiswa',
+        ]);
         Mahasiswa::create([
+            'user_id' => $user->id,
             'prodi_id' => $request->prodi_id,
             'nim' => $request->nim,
             'nama' => $request->nama,
             'alamat' => $request->alamat,
         ]);
 
-        return redirect('/mahasiswa');
+        return redirect()->route('mahasiswa.index');
     }
 
     public function edit($id)

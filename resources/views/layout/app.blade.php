@@ -58,6 +58,8 @@
 
 
             <!-- Nav Item - Pages Collapse Menu -->
+
+            @if(Auth::user()->role == 'admin')
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
@@ -81,10 +83,22 @@
                     <i class="fas fa-fw fa-table"></i>
                     <span>Kelola Mahasiswa</span></a>
             </li>
+
+            @endif
+
+            @if(Auth::user()->role == 'mahasiswa')
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ 'biodata' }}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Biodata</span></a>
+            </li>
+            @endif
+
+
           
             
             <li class="nav-item">
-            <form action="/logout" method="POST">
+            <form action="{{ route('logout') }}" method="POST">
                 @csrf
 
                 <button type="submit" class="nav-link border-0 bg-transparent w-100 text-left">
@@ -358,10 +372,7 @@
                     </button>
                 </div>
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
+                
             </div>
         </div>
     </div>
